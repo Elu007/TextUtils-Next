@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@import "preline/variants.css";
+@source "../node_modules/preline/dist/*.js";
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -22,5 +25,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter);
+}
+
+code {
+  font-family: var(--font-geist-mono);
 }
