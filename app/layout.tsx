@@ -1,5 +1,7 @@
+// app/layout.tsx
 import type { Metadata } from 'next'
 import { Inter, Geist, Geist_Mono } from 'next/font/google'
+import Providers from './providers'
 import './globals.css'
 
 const inter = Inter({
@@ -34,11 +36,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   )
