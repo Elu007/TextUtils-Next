@@ -1,5 +1,5 @@
 'use client'
-
+import { Toaster } from 'sonner'
 import Header from '@/components/shared/header/page'
 import Footer from '@/components/shared/footer/page'
 
@@ -9,7 +9,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
+       <Toaster richColors position="top-right" />
       <Header />
       <main className="flex-1 wrapper">
         {children}
