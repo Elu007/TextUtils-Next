@@ -1,7 +1,8 @@
 const BlogPage = () => {
     return (
         <>
-            Blog Page
+            Blog Page.
+            Work in Progress.
         </>
     );
 }
