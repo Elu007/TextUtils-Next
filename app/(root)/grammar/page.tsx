@@ -28,7 +28,7 @@ interface LanguageToolResponse {
   matches: Match[]
 }
 
-const COLORS = ['#10B981', '#EF4444'] // green for correct, red for errors
+const COLORS = ['#10B981', '#EF4444']
 
 const GrammarCheckerPage = () => {
   const [text, setText] = useState('')
@@ -124,7 +124,7 @@ const GrammarCheckerPage = () => {
             <p>{correctedText}</p>
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 w-full max-w-sm sm:max-w-md mx-auto">
             <h3 className="font-semibold text-lg mb-2 text-center">Error Overview 📊</h3>
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
@@ -136,14 +136,19 @@ const GrammarCheckerPage = () => {
                   cy="50%"
                   outerRadius={80}
                   innerRadius={40}
-                  label={({ name }) => name}
+                  label={({ name }) => name.length > 12 ? name.split(' ').join('\n') : name}
                 >
                   {pieData.map((_, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
                 <Tooltip />
-                <Legend layout="horizontal" verticalAlign="bottom" align="center" />
+                <Legend
+                  layout="horizontal"
+                  verticalAlign="bottom"
+                  align="center"
+                  wrapperStyle={{ fontSize: '12px', textAlign: 'center' }}
+                />
               </PieChart>
             </ResponsiveContainer>
           </div>
